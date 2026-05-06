@@ -5,132 +5,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Das Hambacher Fest | Historie</title>
     <style>
-        /* Grundlegendes Design & Winter-Theme */
+        /* Modernes & dynamisches Winter-Theme */
         :root {
-            --bg-color: #0f172a; /* Dunkles Winternacht-Blau */
             --text-color: #f8fafc;
-            --card-bg: #1e293b;
-            --accent-blue: #38bdf8; /* Eisblau */
-            --accent-red: #ef4444; /* Festliches Rot */
-            --accent-gold: #fbbf24; /* Gold */
+            --accent-blue: #7dd3fc; /* Helles Eisblau */
+            --accent-red: #f87171; /* Festliches Rot */
+            --accent-gold: #fcd34d; /* Warmes Gold */
         }
 
         html {
             scroll-behavior: smooth;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
+        /* Dynamischer animierter Hintergrund (Nordlichter-Effekt) */
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(-45deg, #0f172a, #1e3a8a, #064e3b, #020617);
+            background-size: 400% 400%;
+            animation: auroraBG 15s ease infinite;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Wasserzeichen */
+        @keyframes auroraBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Großes, dynamisches Wasserzeichen im Hintergrund */
         .watermark {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 3rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 10vw;
             font-weight: 900;
-            color: rgba(255, 255, 255, 0.04);
-            z-index: 9999;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: 0;
             pointer-events: none;
-            text-transform: uppercase;
-            letter-spacing: 5px;
             white-space: nowrap;
+            letter-spacing: 10px;
+            text-transform: uppercase;
         }
 
         /* Header */
         header {
             text-align: center;
             padding: 5rem 1rem 3rem;
-            background: linear-gradient(to bottom, #020617, #0f172a);
-            border-bottom: 2px solid var(--accent-blue);
             position: relative;
+            z-index: 10;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin: 0;
             color: var(--accent-blue);
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+            text-shadow: 0 0 20px rgba(125, 211, 252, 0.5);
+            letter-spacing: -1px;
         }
 
         .subtitle {
             font-size: 1.2rem;
-            color: #94a3b8;
+            color: #cbd5e1;
             margin-top: 10px;
-            font-style: italic;
+            font-weight: 300;
         }
 
-        /* Hauptinhalt */
+        /* Hauptinhalt & Glassmorphismus (Milchglas-Effekt) */
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             padding: 2rem;
+            position: relative;
+            z-index: 10;
         }
 
         section {
-            margin-bottom: 4rem;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border-top: 4px solid transparent;
-            transition: transform 0.3s ease;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
         section:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         h2 {
             color: var(--accent-red);
-            border-bottom: 2px solid #334155;
-            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.8rem;
             margin-top: 0;
+            font-weight: 600;
         }
 
-        /* Fachbegriffe Navigation (Tag Cloud) */
+        /* Fachbegriffe Navigation */
         .term-nav {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 2rem;
-            background: #0f172a;
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px dashed var(--accent-blue);
+            gap: 12px;
+            margin-bottom: 2.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px dashed rgba(125, 211, 252, 0.3);
         }
 
         .term-link {
-            background-color: var(--accent-blue);
-            color: #0f172a;
-            padding: 5px 15px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+            padding: 8px 20px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .term-link:hover {
-            background-color: var(--accent-gold);
-            transform: scale(1.05);
+            background: var(--accent-blue);
+            color: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(125, 211, 252, 0.4);
         }
 
         /* Erklärungs-Karten */
         .term-card {
-            background: #273449;
-            margin-bottom: 1rem;
-            padding: 1rem 1.5rem;
-            border-left: 5px solid var(--accent-blue);
-            border-radius: 4px;
-            transition: background-color 1s ease;
+            background: rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.2rem;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 8px;
+            transition: all 0.8s ease;
         }
 
         .term-card h3 {
@@ -139,21 +160,31 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 500;
         }
 
-        /* Animation für das Ziel des Klicks */
+        /* Leucht-Effekt beim Anklicken eines Links */
         .term-card:target {
-            animation: highlight-target 2s ease-out;
+            animation: pulse-glow 2s ease-out;
         }
 
-        @keyframes highlight-target {
-            0% { background-color: var(--accent-blue); color: #000; }
-            100% { background-color: #273449; }
+        @keyframes pulse-glow {
+            0% { 
+                background: rgba(125, 211, 252, 0.3); 
+                box-shadow: 0 0 20px rgba(125, 211, 252, 0.5);
+                transform: scale(1.02);
+            }
+            100% { 
+                background: rgba(0, 0, 0, 0.2); 
+                box-shadow: none;
+                transform: scale(1);
+            }
         }
 
         /* Flaggen-Fakt */
         .flag-fact {
             border-left: 5px solid var(--accent-gold);
+            background: linear-gradient(135deg, rgba(252, 211, 77, 0.1), rgba(0,0,0,0));
         }
 
         .flag-colors span {
@@ -162,39 +193,40 @@
             height: 15px;
             border-radius: 50%;
             margin-right: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
-        .c-black { background: #000; }
-        .c-red { background: #dc2626; }
+        .c-black { background: #111; }
+        .c-red { background: #ef4444; }
         .c-gold { background: #fbbf24; }
 
         /* Dynamischer Schnee */
         .snowflake {
             position: fixed;
-            top: -10px;
+            top: -20px;
             color: rgba(255, 255, 255, 0.8);
-            font-size: 1.2em;
             user-select: none;
             z-index: 1000;
             pointer-events: none;
             animation: fall linear infinite;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
         }
 
         @keyframes fall {
             to {
-                transform: translateY(105vh) rotate(360deg);
+                transform: translateY(105vh) translateX(20px) rotate(360deg);
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Das angeforderte Wasserzeichen -->
+    <!-- Dynamisches Hintergrund-Wasserzeichen -->
     <div class="watermark">Yazdan Ghanbari</div>
 
     <header>
         <h1>Das Hambacher Fest</h1>
-        <p class="subtitle">Eine historische Zeitreise im weihnachtlichen Gewand</p>
+        <p class="subtitle">Eine historische Zeitreise durch die Winternacht</p>
     </header>
 
     <main class="container">
@@ -207,15 +239,14 @@
 
         <section id="hintergrund">
             <h2>Warum nannte man es ein „Fest“ und nicht „Demonstration“?</h2>
-            <p>Das ist einer der spannendsten Punkte an der Geschichte, der auch heute noch fasziniert. Damals herrschten in den deutschen Gebieten strenge politische Regeln. Die Könige und Fürsten hatten große Angst vor Aufständen und verboten politische Versammlungen strengstens.</p>
+            <p>Das ist einer der spannendsten Punkte an der Geschichte. Damals herrschten in den deutschen Gebieten strenge politische Regeln. Die Könige und Fürsten hatten große Angst vor Aufständen und verboten politische Versammlungen strengstens.</p>
             <p>Um dieses Verbot auszutricksen, tarnten die Organisatoren (vor allem die Journalisten Philipp Jakob Siebenpfeiffer und Johann Georg August Wirth) das politische Treffen kurzerhand als friedliches, harmloses <strong>Volksfest</strong> mit Musik, Wein und Gesang. Die Behörden konnten ein "Fest" nicht so einfach verbieten wie eine politische Demonstration. Dennoch kamen fast 30.000 Menschen zusammen, um für Freiheit und Demokratie zu demonstrieren.</p>
         </section>
 
         <section id="begriffe">
             <h2>Wichtige Fachbegriffe einfach erklärt</h2>
-            <p>Wenn man über das Hambacher Fest liest, stolpert man oft über historisches "Hochdeutsch". <strong>Klicke auf einen der folgenden Begriffe</strong>, um wie auf einer Schlittenfahrt direkt zur winterlich verpackten, leicht verständlichen Erklärung zu gleiten:</p>
+            <p>Wenn man über das Hambacher Fest liest, stolpert man oft über historisches "Hochdeutsch". <strong>Klicke auf einen der folgenden Begriffe</strong>, um wie auf einer Eisbahn direkt zur Erklärung zu gleiten:</p>
             
-            <!-- Klickbare Navigation -->
             <div class="term-nav">
                 <a href="#def-kleinstaaterei" class="term-link">Kleinstaaterei</a>
                 <a href="#def-nationalstaat" class="term-link">Nationalstaat</a>
@@ -226,10 +257,9 @@
                 <a href="#def-burschenschaften" class="term-link">Burschenschaften</a>
             </div>
 
-            <!-- Erklärungen mit IDs für die Anker-Links -->
             <div id="def-kleinstaaterei" class="term-card">
                 <h3>❄️ Kleinstaaterei (oder Deutscher Bund)</h3>
-                <p>Deutschland war 1832 kein vereintes Land, wie wir es heute kennen. Es war ein riesiger Flickenteppich (der fast wie ein zersplitterter Eiskristall wirkte) aus über 30 einzelnen, unabhängigen Königreichen, Fürstentümern und Herzogtümern (z. B. Preußen, Bayern, Baden).</p>
+                <p>Deutschland war 1832 kein vereintes Land, wie wir es heute kennen. Es war ein riesiger Flickenteppich aus über 30 einzelnen, unabhängigen Königreichen, Fürstentümern und Herzogtümern (z. B. Preußen, Bayern, Baden).</p>
             </div>
 
             <div id="def-nationalstaat" class="term-card">
@@ -270,31 +300,26 @@
 
     </main>
 
-    <!-- JavaScript für die dynamischen Schnee-Effekte -->
+    <!-- Schneeflocken-Skript für den dynamischen Effekt -->
     <script>
         function createSnowflake() {
             const snow = document.createElement('div');
             snow.className = 'snowflake';
             snow.textContent = '❄';
             
-            // Zufällige Startposition auf der X-Achse
             snow.style.left = Math.random() * 100 + 'vw';
-            
-            // Zufällige Größe, Deckkraft und Fallgeschwindigkeit
-            snow.style.opacity = Math.random() * 0.8 + 0.2;
-            snow.style.fontSize = Math.random() * 10 + 10 + 'px';
-            snow.style.animationDuration = Math.random() * 5 + 5 + 's';
+            snow.style.opacity = Math.random() * 0.7 + 0.3;
+            snow.style.fontSize = Math.random() * 12 + 8 + 'px';
+            snow.style.animationDuration = Math.random() * 4 + 4 + 's';
             
             document.body.appendChild(snow);
             
-            // Schneeflocke entfernen, wenn sie unten angekommen ist
             setTimeout(() => {
                 snow.remove();
-            }, 10000);
+            }, 8000);
         }
 
-        // Alle 250 Millisekunden eine neue Schneeflocke generieren
-        setInterval(createSnowflake, 250);
+        setInterval(createSnowflake, 200);
     </script>
 </body>
 </html>
