@@ -11,6 +11,7 @@
             --accent-blue: #7dd3fc;
             --accent-red: #f87171;
             --accent-gold: #fcd34d;
+            --link-color: #fbbf24; /* Gold für Links im Text */
         }
 
         html {
@@ -30,7 +31,7 @@
             position: relative;
         }
 
-        /* Schlichtes Wasserzeichen-Zeichen unten rechts */
+        /* Wasserzeichen unten rechts */
         .watermark {
             position: fixed;
             bottom: 20px;
@@ -73,7 +74,7 @@
             font-weight: 300;
         }
 
-        /* Hauptinhalt & Glassmorphismus (Milchglas-Effekt) */
+        /* Hauptinhalt & Glassmorphismus */
         .container {
             max-width: 850px;
             margin: 0 auto;
@@ -91,13 +92,6 @@
             padding: 2.5rem;
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         h2 {
@@ -106,6 +100,20 @@
             padding-bottom: 0.8rem;
             margin-top: 0;
             font-weight: 600;
+        }
+
+        /* Styling für die interaktiven Links im Text */
+        .inline-link {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--link-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .inline-link:hover {
+            background: rgba(251, 191, 36, 0.2);
+            border-bottom: 1px solid var(--link-color);
         }
 
         /* Fachbegriffe Navigation */
@@ -124,21 +132,18 @@
             background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             color: var(--text-color);
             padding: 8px 20px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.3s ease;
         }
 
         .term-link:hover {
             background: var(--accent-blue);
             color: #0f172a;
             transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(125, 211, 252, 0.4);
         }
 
         /* Erklärungs-Karten */
@@ -154,45 +159,27 @@
         .term-card h3 {
             margin-top: 0;
             color: var(--accent-gold);
-            display: flex;
-            align-items: center;
-            gap: 10px;
             font-weight: 500;
         }
 
-        /* Leucht-Effekt beim Anklicken eines Links */
+        /* Effekt beim Ziel-Scrollen */
         .term-card:target {
             animation: pulse-glow 2s ease-out;
         }
 
         @keyframes pulse-glow {
-            0% { 
-                background: rgba(125, 211, 252, 0.3); 
-                box-shadow: 0 0 20px rgba(125, 211, 252, 0.5);
-                transform: scale(1.02);
-            }
-            100% { 
-                background: rgba(0, 0, 0, 0.2); 
-                box-shadow: none;
-                transform: scale(1);
-            }
+            0% { background: rgba(125, 211, 252, 0.3); transform: scale(1.02); }
+            100% { background: rgba(0, 0, 0, 0.2); transform: scale(1); }
         }
 
         /* Flaggen-Fakt */
-        .flag-fact {
-            border-left: 5px solid var(--accent-gold);
-            background: linear-gradient(135deg, rgba(252, 211, 77, 0.1), rgba(0,0,0,0));
-        }
-
         .flag-colors span {
             display: inline-block;
             width: 15px;
             height: 15px;
             border-radius: 50%;
             margin-right: 5px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
-
         .c-black { background: #111; }
         .c-red { background: #ef4444; }
         .c-gold { background: #fbbf24; }
@@ -200,31 +187,28 @@
 </head>
 <body>
 
-    <!-- Das schlichte Wasserzeichen -->
     <div class="watermark">© Yazdan Ghanbari</div>
 
     <header>
         <h1>Das Hambacher Fest</h1>
-        <p class="subtitle">Eine historische Zeitreise durch die Winternacht</p>
+        <p class="subtitle">Interaktive Geschichte im winterlichen Gewand</p>
     </header>
 
     <main class="container">
         
         <section id="name">
             <h2>Warum heißt es „Hambacher Fest“?</h2>
-            <p>Der Name ist eigentlich ganz simpel und leitet sich vom Ort des Geschehens ab: Das Ereignis fand vom 27. Mai bis zum 1. Juni 1832 an der sogenannten <strong>Kästenburg</strong> statt. Diese Burgruine lag direkt über dem kleinen Dorf <strong>Hambach</strong> (heute ist das ein Stadtteil von Neustadt an der Weinstraße im Bundesland Rheinland-Pfalz).</p>
-            <p>Weil die Menschenmassen ausgerechnet zu dieser Ruine bei Hambach pilgerten, wurde das Ereignis schlicht das <strong>Hambacher Fest</strong> genannt. Die Burgruine selbst kennt man heute übrigens fast nur noch unter dem Namen Hambacher Schloss.</p>
+            <p>Der Name leitet sich schlicht vom Ort des Geschehens ab. Das Ereignis fand 1832 an der sogenannten <strong>Kästenburg</strong> statt. Diese lag über dem Dorf <strong>Hambach</strong>. Da es damals noch die <a href="#def-kleinstaaterei" class="inline-link">Kleinstaaterei</a> gab, war dieser Ort Teil des bayerischen Rheinkreises. Weil die Menschen dorthin pilgerten, nannte man es das Hambacher Fest.</p>
         </section>
 
         <section id="hintergrund">
-            <h2>Warum nannte man es ein „Fest“ und nicht „Demonstration“?</h2>
-            <p>Das ist einer der spannendsten Punkte an der Geschichte. Damals herrschten in den deutschen Gebieten strenge politische Regeln. Die Könige und Fürsten hatten große Angst vor Aufständen und verboten politische Versammlungen strengstens.</p>
-            <p>Um dieses Verbot auszutricksen, tarnten die Organisatoren (vor allem die Journalisten Philipp Jakob Siebenpfeiffer und Johann Georg August Wirth) das politische Treffen kurzerhand als friedliches, harmloses <strong>Volksfest</strong> mit Musik, Wein und Gesang. Die Behörden konnten ein "Fest" nicht so einfach verbieten wie eine politische Demonstration. Dennoch kamen fast 30.000 Menschen zusammen, um für Freiheit und Demokratie zu demonstrieren.</p>
+            <h2>„Fest“ oder „Demonstration“?</h2>
+            <p>Damals wollten die <a href="#def-restauration" class="inline-link">Könige und Fürsten</a> die alte Ordnung bewahren. Sie hatten Angst vor Aufständen und verboten politische Versammlungen. Um die strenge <a href="#def-zensur" class="inline-link">Zensur</a> zu umgehen, tarnten die Organisatoren das Treffen als harmloses Volksfest. Doch eigentlich ging es um die Forderung nach <a href="#def-zensur" class="inline-link">Pressefreiheit</a>, <a href="#def-nationalstaat" class="inline-link">Einheit</a> und <a href="#def-volkssouveraenitaet" class="inline-link">Demokratie</a>.</p>
         </section>
 
         <section id="begriffe">
-            <h2>Wichtige Fachbegriffe einfach erklärt</h2>
-            <p>Wenn man über das Hambacher Fest liest, stolpert man oft über historisches "Hochdeutsch". <strong>Klicke auf einen der folgenden Begriffe</strong>, um direkt zur Erklärung zu gleiten:</p>
+            <h2>Wichtige Begriffe erklärt</h2>
+            <p>Klicke auf ein Wort im Text oben oder hier in der Liste, um zur Erklärung zu springen:</p>
             
             <div class="term-nav">
                 <a href="#def-kleinstaaterei" class="term-link">Kleinstaaterei</a>
@@ -237,44 +221,44 @@
             </div>
 
             <div id="def-kleinstaaterei" class="term-card">
-                <h3>❄️ Kleinstaaterei (oder Deutscher Bund)</h3>
-                <p>Deutschland war 1832 kein vereintes Land, wie wir es heute kennen. Es war ein riesiger Flickenteppich aus über 30 einzelnen, unabhängigen Königreichen, Fürstentümern und Herzogtümern (z. B. Preußen, Bayern, Baden).</p>
+                <h3>❄️ Kleinstaaterei</h3>
+                <p>Deutschland war ein „Flickenteppich“ aus über 30 einzelnen, unabhängigen Gebieten wie Preußen oder Bayern. Es gab kein gemeinsames Deutschland.</p>
             </div>
 
             <div id="def-nationalstaat" class="term-card">
                 <h3>❄️ Nationalstaat</h3>
-                <p>Das war das große Ziel vieler Teilnehmer auf dem Fest. Sie wollten die Kleinstaaterei beenden und forderten <em>ein</em> einziges, vereintes Deutschland.</p>
+                <p>Das Ziel der Menschen: Die vielen kleinen Staaten sollten sich zu einem einzigen, großen und vereinten Deutschland zusammenschließen.</p>
             </div>
 
             <div id="def-restauration" class="term-card">
                 <h3>❄️ Restauration</h3>
-                <p>(Bedeutet so viel wie „Wiederherstellung“). Nach der Niederlage von Napoleon wollten die europäischen Könige und Fürsten die alte Ordnung wiederherstellen. Sie wollten wieder absolutistisch (also alleine) herrschen, ohne dass das normale Volk ein Mitspracherecht hatte.</p>
+                <p>Die <a href="#def-restauration" class="inline-link">Könige und Fürsten</a> wollten die Macht für sich allein behalten (Absolutismus) und den Zustand von früher wiederherstellen.</p>
             </div>
 
             <div id="def-zensur" class="term-card">
-                <h3>❄️ Zensur</h3>
-                <p>Der Staat kontrollierte damals streng alles, was in Zeitungen, Büchern oder auf Flugblättern geschrieben stand. Wer Kritik an den Herrschern übte, wurde zensiert, verboten, bestraft oder sogar ins Gefängnis geworfen. Die Menschen auf dem Hambacher Fest forderten daher lautstark die <strong>Pressefreiheit</strong>.</p>
+                <h3>❄️ Zensur & Pressefreiheit</h3>
+                <p>Zensur bedeutet, dass der Staat alles kontrolliert, was gedruckt wird. Die Teilnehmer des Festes forderten die <strong>Pressefreiheit</strong>, damit jeder seine Meinung frei sagen darf.</p>
             </div>
 
             <div id="def-volkssouveraenitaet" class="term-card">
-                <h3>❄️ Volkssouveränität</h3>
-                <p>Das ist ein sperriges Wort für eine revolutionäre Idee: Die Macht im Staat soll vom Volk ausgehen und nicht von einem König, der behauptet, von Gott eingesetzt worden zu sein. Das Volk soll wählen und mitentscheiden dürfen (Demokratie).</p>
+                <h3>❄️ Volkssouveränität & Demokratie</h3>
+                <p>Die Idee, dass die Macht vom Volk ausgeht. Die Menschen wollten wählen und mitentscheiden, anstatt nur Befehle eines Königs zu befolgen.</p>
             </div>
 
             <div id="def-buergertum" class="term-card">
                 <h3>❄️ Bürgertum</h3>
-                <p>Das waren die gebildeten und oft auch wohlhabenden Menschen aus der Mitte der Gesellschaft (z. B. Ärzte, Anwälte, Kaufleute, Studenten und Handwerker). Sie waren die treibende Kraft hinter dem Hambacher Fest, weil sie Steuern zahlten, aber politisch nichts zu sagen hatten.</p>
+                <p>Das waren gebildete Leute (Ärzte, Anwälte, Handwerker), die zwar Steuern zahlten, aber politisch nichts zu sagen hatten. Sie wollten das ändern.</p>
             </div>
 
             <div id="def-burschenschaften" class="term-card">
                 <h3>❄️ Burschenschaften</h3>
-                <p>Das waren Vereinigungen von Universitätsstudenten. Sie trugen maßgeblich die Ideen von Freiheit und einem vereinten Deutschland in die Gesellschaft.</p>
+                <p>Studentenverbindungen, die damals sehr modern waren und für die Freiheit und Einheit Deutschlands kämpften.</p>
             </div>
         </section>
 
-        <section id="fakt" class="flag-fact">
-            <h2>Ein interessanter Fakt zum Schluss 🎄</h2>
-            <p>Beim Hambacher Fest wurde zum ersten Mal in großer Zahl eine Flagge in den Farben <span class="flag-colors"><span class="c-black"></span><span class="c-red"></span><span class="c-gold"></span></span> <strong>Schwarz-Rot-Gold</strong> (in der heutigen Reihenfolge) von der Menge den Berg hinaufgetragen. Sie stand damals als Symbol für ein freies, vereintes Deutschland und ist genau deshalb heute unsere Nationalflagge.</p>
+        <section id="fakt">
+            <h2>Ein interessanter Fakt 🎄</h2>
+            <p>Hier wurde zum ersten Mal die Flagge in <span class="flag-colors"><span class="c-black"></span><span class="c-red"></span><span class="c-gold"></span></span> <strong>Schwarz-Rot-Gold</strong> als Symbol für ein freies Deutschland getragen.</p>
         </section>
 
     </main>
