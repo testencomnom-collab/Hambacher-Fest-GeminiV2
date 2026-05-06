@@ -3,265 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Das Hambacher Fest | Historie</title>
+    <title>Hambacher Fest | Geschichte Erleben</title>
     <style>
-        /* Modernes Theme */
+        /* Modernes Design-System */
         :root {
             --text-color: #f8fafc;
             --accent-blue: #7dd3fc;
             --accent-red: #f87171;
             --accent-gold: #fcd34d;
-            --link-color: #fbbf24; /* Gold für Links im Text */
+            --link-color: #fbbf24;
+            --glass-bg: rgba(255, 255, 255, 0.08);
         }
 
         html {
             scroll-behavior: smooth;
-            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        /* Statischer Hintergrund (Tiefe Winternacht) */
+        /* Statischer Winternacht-Hintergrund */
         body {
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
             color: var(--text-color);
-            background: linear-gradient(135deg, #0f172a, #1e3a8a, #020617);
+            background: linear-gradient(145deg, #020617 0%, #1e3a8a 50%, #0f172a 100%);
             background-attachment: fixed;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Wasserzeichen unten rechts */
+        /* Wasserzeichen Yazdan Ghanbari */
         .watermark {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 8px 16px;
-            border-radius: 20px;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px 24px;
+            border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.8);
-            z-index: 1000;
-            pointer-events: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            z-index: 10000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.5px;
         }
 
-        /* Header */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
         header {
             text-align: center;
-            padding: 5rem 1rem 3rem;
-            position: relative;
-            z-index: 10;
+            margin-bottom: 5rem;
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             margin: 0;
             color: var(--accent-blue);
-            text-shadow: 0 0 20px rgba(125, 211, 252, 0.5);
-            letter-spacing: -1px;
+            text-shadow: 0 0 40px rgba(125, 211, 252, 0.3);
+            letter-spacing: -2px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            margin-top: 10px;
+            font-size: 1.4rem;
+            color: #94a3b8;
             font-weight: 300;
-        }
-
-        /* Hauptinhalt & Glassmorphismus */
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 10;
+            margin-top: 15px;
         }
 
         section {
-            margin-bottom: 3rem;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            margin-bottom: 4rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
             color: var(--accent-red);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 0.8rem;
+            font-size: 2.2rem;
             margin-top: 0;
-            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
         }
 
-        /* Styling für die interaktiven Links im Text */
+        /* Interaktive Links im Text */
         .inline-link {
             color: var(--link-color);
             text-decoration: none;
+            font-weight: 600;
             border-bottom: 1px dashed var(--link-color);
-            font-weight: 500;
             transition: all 0.3s ease;
         }
 
         .inline-link:hover {
-            background: rgba(251, 191, 36, 0.2);
+            background: rgba(251, 191, 36, 0.15);
             border-bottom: 1px solid var(--link-color);
+            border-radius: 4px;
+            padding: 0 4px;
         }
 
-        /* Fachbegriffe Navigation */
-        .term-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 2.5rem;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px dashed rgba(125, 211, 252, 0.3);
-        }
-
-        .term-link {
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            color: var(--text-color);
-            padding: 8px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .term-link:hover {
-            background: var(--accent-blue);
-            color: #0f172a;
-            transform: translateY(-2px);
-        }
-
-        /* Erklärungs-Karten */
+        /* Glossar Karten */
         .term-card {
-            background: rgba(0, 0, 0, 0.2);
-            margin-bottom: 1.2rem;
-            padding: 1.5rem;
-            border-left: 4px solid var(--accent-blue);
-            border-radius: 8px;
-            transition: all 0.8s ease;
+            background: rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+            padding: 2rem;
+            border-left: 6px solid var(--accent-blue);
+            border-radius: 15px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .term-card:hover {
+            transform: translateX(10px);
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .term-card h3 {
-            margin-top: 0;
+            margin: 0 0 0.8rem 0;
             color: var(--accent-gold);
-            font-weight: 500;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        /* Effekt beim Ziel-Scrollen */
+        /* Animation beim Ziel-Sprung */
         .term-card:target {
-            animation: pulse-glow 2s ease-out;
+            animation: highlight-glow 3s ease;
         }
 
-        @keyframes pulse-glow {
-            0% { background: rgba(125, 211, 252, 0.3); transform: scale(1.02); }
-            100% { background: rgba(0, 0, 0, 0.2); transform: scale(1); }
+        @keyframes highlight-glow {
+            0% { border-left-color: var(--accent-red); box-shadow: 0 0 30px rgba(248, 113, 113, 0.4); }
+            100% { border-left-color: var(--accent-blue); box-shadow: none; }
         }
 
-        /* Flaggen-Fakt */
-        .flag-colors span {
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            margin-right: 5px;
+        .flag-preview {
+            display: inline-flex;
+            gap: 5px;
+            vertical-align: middle;
         }
-        .c-black { background: #111; }
-        .c-red { background: #ef4444; }
-        .c-gold { background: #fbbf24; }
+        .bar { width: 15px; height: 15px; border-radius: 3px; }
+        .black { background: #000; }
+        .red { background: #ef4444; }
+        .gold { background: #fbbf24; }
+
+        @media (max-width: 600px) {
+            .container { padding: 2rem 1rem; }
+            .watermark { font-size: 0.8rem; bottom: 10px; right: 10px; }
+        }
     </style>
 </head>
 <body>
 
     <div class="watermark">© Yazdan Ghanbari</div>
 
-    <header>
-        <h1>Das Hambacher Fest</h1>
-        <p class="subtitle">Interaktive Geschichte im winterlichen Gewand</p>
-    </header>
-
     <main class="container">
-        
-        <section id="name">
-            <h2>Warum heißt es „Hambacher Fest“?</h2>
-            <p>Der Name leitet sich schlicht vom Ort des Geschehens ab. Das Ereignis fand 1832 an der sogenannten <strong>Kästenburg</strong> statt. Diese lag über dem Dorf <strong>Hambach</strong>. Da es damals noch die <a href="#def-kleinstaaterei" class="inline-link">Kleinstaaterei</a> gab, war dieser Ort Teil des bayerischen Rheinkreises. Weil die Menschen dorthin pilgerten, nannte man es das Hambacher Fest.</p>
+        <header>
+            <h1>Das Hambacher Fest</h1>
+            <p class="subtitle">Freiheit, Einheit und Mut – eine winterliche Zeitreise</p>
+        </header>
+
+        <section>
+            <h2>Woher kommt der Name?</h2>
+            <p>
+                Der Name ist ein geografischer Fingerabdruck. Im Mai 1832 zogen rund 30.000 Menschen zur Ruine der <strong>Kästenburg</strong> (heute Hambacher Schloss). Diese Burg lag direkt über dem Dorf <strong>Hambach</strong>. Da es damals die <a href="#def-kleinstaaterei" class="inline-link">Kleinstaaterei</a> gab, war der Ort strategisch wichtig. Die Menschenmassen pilgerten dort hin, und so wurde aus der Ruine der Ort des „Hambacher Festes“.
+            </p>
         </section>
 
-        <section id="hintergrund">
-            <h2>„Fest“ oder „Demonstration“?</h2>
-            <p>Damals wollten die <a href="#def-restauration" class="inline-link">Könige und Fürsten</a> die alte Ordnung bewahren. Sie hatten Angst vor Aufständen und verboten politische Versammlungen. Um die strenge <a href="#def-zensur" class="inline-link">Zensur</a> zu umgehen, tarnten die Organisatoren das Treffen als harmloses Volksfest. Doch eigentlich ging es um die Forderung nach <a href="#def-zensur" class="inline-link">Pressefreiheit</a>, <a href="#def-nationalstaat" class="inline-link">Einheit</a> und <a href="#def-volkssouveraenitaet" class="inline-link">Demokratie</a>.</p>
+        <section>
+            <h2>Tarnung als winterliches Volksfest</h2>
+            <p>
+                Warum nannte man es „Fest“? In der Zeit der <a href="#def-restauration" class="inline-link">Restauration</a> waren Demonstrationen streng verboten. Die Fürsten nutzten harte <a href="#def-zensur" class="inline-link">Zensur</a>, um Kritik zu unterdrücken. Die Organisatoren aus dem <a href="#def-buergertum" class="inline-link">Bürgertum</a> und den <a href="#def-burschenschaften" class="inline-link">Burschenschaften</a> tarnten das politische Treffen deshalb als harmloses Vergnügen mit Musik und Wein. Es war der Höhepunkt des <a href="#def-vormaerz" class="inline-link">Vormärz</a>.
+            </p>
         </section>
 
-        <section id="begriffe">
-            <h2>Wichtige Begriffe erklärt</h2>
-            <p>Klicke auf ein Wort im Text oben oder hier in der Liste, um zur Erklärung zu springen:</p>
-            
-            <div class="term-nav">
-                <a href="#def-kleinstaaterei" class="term-link">Kleinstaaterei</a>
-                <a href="#def-nationalstaat" class="term-link">Nationalstaat</a>
-                <a href="#def-restauration" class="term-link">Restauration</a>
-                <a href="#def-zensur" class="term-link">Zensur</a>
-                <a href="#def-volkssouveraenitaet" class="term-link">Volkssouveränität</a>
-                <a href="#def-buergertum" class="term-link">Bürgertum</a>
-                <a href="#def-burschenschaften" class="term-link">Burschenschaften</a>
-            </div>
+        <section id="glossar">
+            <h2>Fachbegriffe & „Hochdeutsch“</h2>
+            <p style="color: #cbd5e1; font-style: italic; margin-bottom: 2rem;">
+                Klicke auf die Begriffe im Text oben, um direkt hierher zu springen. Historiker nutzen oft kompliziertes „Hochdeutsch“ – hier ist die einfache Übersetzung:
+            </p>
 
             <div id="def-kleinstaaterei" class="term-card">
                 <h3>❄️ Kleinstaaterei</h3>
-                <p>Deutschland war ein „Flickenteppich“ aus über 30 einzelnen, unabhängigen Gebieten wie Preußen oder Bayern. Es gab kein gemeinsames Deutschland.</p>
+                <p>Deutschland war kein echtes Land, sondern ein „Flickenteppich“ aus vielen kleinen Gebieten. Jeder Fürst kochte seine eigene Suppe, es gab keine Einheit.</p>
             </div>
 
             <div id="def-nationalstaat" class="term-card">
                 <h3>❄️ Nationalstaat</h3>
-                <p>Das Ziel der Menschen: Die vielen kleinen Staaten sollten sich zu einem einzigen, großen und vereinten Deutschland zusammenschließen.</p>
+                <p>Der Traum der Menschen: Alle Deutschen sollten in einem einzigen, gemeinsamen Land leben, statt in 30 kleinen Gebieten verteilt zu sein.</p>
             </div>
 
             <div id="def-restauration" class="term-card">
                 <h3>❄️ Restauration</h3>
-                <p>Die <a href="#def-restauration" class="inline-link">Könige und Fürsten</a> wollten die Macht für sich allein behalten (Absolutismus) und den Zustand von früher wiederherstellen.</p>
+                <p>Bedeutet „Wiederherstellung“. Die Könige wollten die alte Macht zurück, wie sie vor Napoleon war – ohne dass das normale Volk etwas zu sagen hat.</p>
             </div>
 
             <div id="def-zensur" class="term-card">
                 <h3>❄️ Zensur & Pressefreiheit</h3>
-                <p>Zensur bedeutet, dass der Staat alles kontrolliert, was gedruckt wird. Die Teilnehmer des Festes forderten die <strong>Pressefreiheit</strong>, damit jeder seine Meinung frei sagen darf.</p>
+                <p>Zensur heißt: Der Staat verbietet alles, was ihm nicht passt. Die Leute in Hambach forderten <strong>Pressefreiheit</strong>, damit Zeitungen die Wahrheit schreiben dürfen.</p>
+            </div>
+
+            <div id="def-vormaerz" class="term-card">
+                <h3>❄️ Vormärz</h3>
+                <p>So nennt man die Zeit vor der großen Revolution im März 1848. Es war eine Zeit voller Spannung, in der die Sehnsucht nach Freiheit immer größer wurde.</p>
+            </div>
+
+            <div id="def-hochdeutsch" class="term-card">
+                <h3>❄️ Hochdeutsch (Bildungssprache)</h3>
+                <p>Damals sprachen die meisten Leute Dialekt (z.B. Pfälzisch). Hochdeutsch zu sprechen war ein Zeichen von Bildung und Einigkeit. Es war die Sprache, in der man über Politik und Recht diskutierte, um sich über Grenzen hinweg zu verstehen.</p>
             </div>
 
             <div id="def-volkssouveraenitaet" class="term-card">
-                <h3>❄️ Volkssouveränität & Demokratie</h3>
-                <p>Die Idee, dass die Macht vom Volk ausgeht. Die Menschen wollten wählen und mitentscheiden, anstatt nur Befehle eines Königs zu befolgen.</p>
+                <h3>❄️ Volkssouveränität</h3>
+                <p>Das wichtigste Ziel: Die Macht soll vom Volk ausgehen, nicht von einem König durch „Gottes Gnaden“. Das ist der Kern jeder Demokratie.</p>
             </div>
 
             <div id="def-buergertum" class="term-card">
                 <h3>❄️ Bürgertum</h3>
-                <p>Das waren gebildete Leute (Ärzte, Anwälte, Handwerker), die zwar Steuern zahlten, aber politisch nichts zu sagen hatten. Sie wollten das ändern.</p>
+                <p>Gebildete Menschen (Lehrer, Ärzte, Kaufleute), die arbeiteten und Steuern zahlten, aber endlich auch politisch mitbestimmen wollten.</p>
             </div>
 
             <div id="def-burschenschaften" class="term-card">
                 <h3>❄️ Burschenschaften</h3>
-                <p>Studentenverbindungen, die damals sehr modern waren und für die Freiheit und Einheit Deutschlands kämpften.</p>
+                <p>Studentenverbindungen, die damals sehr radikal für die Einheit Deutschlands kämpften. Sie brachten die Farben Schwarz-Rot-Gold mit.</p>
             </div>
         </section>
 
-        <section id="fakt">
-            <h2>Ein interessanter Fakt 🎄</h2>
-            <p>Hier wurde zum ersten Mal die Flagge in <span class="flag-colors"><span class="c-black"></span><span class="c-red"></span><span class="c-gold"></span></span> <strong>Schwarz-Rot-Gold</strong> als Symbol für ein freies Deutschland getragen.</p>
+        <section>
+            <h2>Wusstest du schon? 🎄</h2>
+            <p>
+                Nicht nur Deutsche feierten hier. Es gab eine riesige <strong>Polenbegeisterung</strong>. Viele Polen, die gegen Russland gekämpft hatten, wurden wie Helden empfangen. Außerdem wurde hier zum ersten Mal die Flagge in 
+                <span class="flag-preview"><span class="bar black"></span><span class="bar red"></span><span class="bar gold"></span></span> 
+                <strong>Schwarz-Rot-Gold</strong> offiziell als Zeichen der Freiheit getragen!
+            </p>
         </section>
-
     </main>
-
 </body>
 </html>
