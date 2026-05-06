@@ -43,24 +43,15 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Dynamischer animierter Hintergrund (Nordlichter-Effekt) */
         body {
             margin: 0;
             padding: 0;
             line-height: 1.6;
             color: var(--text-color);
-            background: linear-gradient(-45deg, #0f172a, #1e3a8a, #064e3b, #020617);
-            background-size: 400% 400%;
-            animation: auroraBG 15s ease infinite;
+            background: #0f172a;
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
-        }
-
-        @keyframes auroraBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         /* Reduced Motion Support */
@@ -423,11 +414,6 @@
             }
         }
 
-        /* Dark Mode Support (bereits dunkel, aber für Konsistenz) */
-        @media (prefers-color-scheme: light) {
-            /* Optional: Heller Modus könnte hier implementiert werden */
-        }
-
         /* High Contrast Mode */
         @media (prefers-contrast: high) {
             section {
@@ -561,7 +547,7 @@
         
         // Zeige Button nach 300px scrollen
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
+            if (window.scrollY > 300) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
@@ -593,9 +579,9 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 80; // Offset für bessere Sichtbarkeit
+                    const offset = 80;
                     const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    const offsetPosition = elementPosition + window.scrollY - offset;
 
                     window.scrollTo({
                         top: offsetPosition,
@@ -635,7 +621,6 @@
                 });
             }, observerOptions);
 
-            // Beobachte alle Sections (optional für zusätzliche Performance)
             document.querySelectorAll('section').forEach(section => {
                 observer.observe(section);
             });
