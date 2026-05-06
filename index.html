@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Das Hambacher Fest | Historie</title>
     <style>
-        /* Modernes & dynamisches Winter-Theme */
+        /* Modernes & dynamisches Theme */
         :root {
             --text-color: #f8fafc;
-            --accent-blue: #7dd3fc; /* Helles Eisblau */
-            --accent-red: #f87171; /* Festliches Rot */
-            --accent-gold: #fcd34d; /* Warmes Gold */
+            --accent-blue: #7dd3fc;
+            --accent-red: #f87171;
+            --accent-gold: #fcd34d;
         }
 
         html {
@@ -37,20 +37,24 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Großes, dynamisches Wasserzeichen im Hintergrund */
+        /* Neues, schlichtes Wasserzeichen-Zeichen unten rechts */
         .watermark {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
-            font-size: 10vw;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.03);
-            z-index: 0;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
             pointer-events: none;
-            white-space: nowrap;
-            letter-spacing: 10px;
-            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
         }
 
         /* Header */
@@ -199,34 +203,16 @@
         .c-black { background: #111; }
         .c-red { background: #ef4444; }
         .c-gold { background: #fbbf24; }
-
-        /* Dynamischer Schnee */
-        .snowflake {
-            position: fixed;
-            top: -20px;
-            color: rgba(255, 255, 255, 0.8);
-            user-select: none;
-            z-index: 1000;
-            pointer-events: none;
-            animation: fall linear infinite;
-            text-shadow: 0 0 5px rgba(255,255,255,0.5);
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(105vh) translateX(20px) rotate(360deg);
-            }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Dynamisches Hintergrund-Wasserzeichen -->
-    <div class="watermark">Yazdan Ghanbari</div>
+    <!-- Das neue, schlichte Wasserzeichen -->
+    <div class="watermark">© Yazdan Ghanbari</div>
 
     <header>
         <h1>Das Hambacher Fest</h1>
-        <p class="subtitle">Eine historische Zeitreise durch die Winternacht</p>
+        <p class="subtitle">Eine historische Zeitreise</p>
     </header>
 
     <main class="container">
@@ -245,7 +231,7 @@
 
         <section id="begriffe">
             <h2>Wichtige Fachbegriffe einfach erklärt</h2>
-            <p>Wenn man über das Hambacher Fest liest, stolpert man oft über historisches "Hochdeutsch". <strong>Klicke auf einen der folgenden Begriffe</strong>, um wie auf einer Eisbahn direkt zur Erklärung zu gleiten:</p>
+            <p>Wenn man über das Hambacher Fest liest, stolpert man oft über historisches "Hochdeutsch". <strong>Klicke auf einen der folgenden Begriffe</strong>, um direkt zur Erklärung zu gleiten:</p>
             
             <div class="term-nav">
                 <a href="#def-kleinstaaterei" class="term-link">Kleinstaaterei</a>
@@ -258,68 +244,47 @@
             </div>
 
             <div id="def-kleinstaaterei" class="term-card">
-                <h3>❄️ Kleinstaaterei (oder Deutscher Bund)</h3>
+                <h3>📌 Kleinstaaterei (oder Deutscher Bund)</h3>
                 <p>Deutschland war 1832 kein vereintes Land, wie wir es heute kennen. Es war ein riesiger Flickenteppich aus über 30 einzelnen, unabhängigen Königreichen, Fürstentümern und Herzogtümern (z. B. Preußen, Bayern, Baden).</p>
             </div>
 
             <div id="def-nationalstaat" class="term-card">
-                <h3>❄️ Nationalstaat</h3>
+                <h3>📌 Nationalstaat</h3>
                 <p>Das war das große Ziel vieler Teilnehmer auf dem Fest. Sie wollten die Kleinstaaterei beenden und forderten <em>ein</em> einziges, vereintes Deutschland.</p>
             </div>
 
             <div id="def-restauration" class="term-card">
-                <h3>❄️ Restauration</h3>
+                <h3>📌 Restauration</h3>
                 <p>(Bedeutet so viel wie „Wiederherstellung“). Nach der Niederlage von Napoleon wollten die europäischen Könige und Fürsten die alte Ordnung wiederherstellen. Sie wollten wieder absolutistisch (also alleine) herrschen, ohne dass das normale Volk ein Mitspracherecht hatte.</p>
             </div>
 
             <div id="def-zensur" class="term-card">
-                <h3>❄️ Zensur</h3>
+                <h3>📌 Zensur</h3>
                 <p>Der Staat kontrollierte damals streng alles, was in Zeitungen, Büchern oder auf Flugblättern geschrieben stand. Wer Kritik an den Herrschern übte, wurde zensiert, verboten, bestraft oder sogar ins Gefängnis geworfen. Die Menschen auf dem Hambacher Fest forderten daher lautstark die <strong>Pressefreiheit</strong>.</p>
             </div>
 
             <div id="def-volkssouveraenitaet" class="term-card">
-                <h3>❄️ Volkssouveränität</h3>
+                <h3>📌 Volkssouveränität</h3>
                 <p>Das ist ein sperriges Wort für eine revolutionäre Idee: Die Macht im Staat soll vom Volk ausgehen und nicht von einem König, der behauptet, von Gott eingesetzt worden zu sein. Das Volk soll wählen und mitentscheiden dürfen (Demokratie).</p>
             </div>
 
             <div id="def-buergertum" class="term-card">
-                <h3>❄️ Bürgertum</h3>
+                <h3>📌 Bürgertum</h3>
                 <p>Das waren die gebildeten und oft auch wohlhabenden Menschen aus der Mitte der Gesellschaft (z. B. Ärzte, Anwälte, Kaufleute, Studenten und Handwerker). Sie waren die treibende Kraft hinter dem Hambacher Fest, weil sie Steuern zahlten, aber politisch nichts zu sagen hatten.</p>
             </div>
 
             <div id="def-burschenschaften" class="term-card">
-                <h3>❄️ Burschenschaften</h3>
+                <h3>📌 Burschenschaften</h3>
                 <p>Das waren Vereinigungen von Universitätsstudenten. Sie trugen maßgeblich die Ideen von Freiheit und einem vereinten Deutschland in die Gesellschaft.</p>
             </div>
         </section>
 
         <section id="fakt" class="flag-fact">
-            <h2>Ein interessanter Fakt zum Schluss 🎄</h2>
+            <h2>Ein interessanter Fakt zum Schluss</h2>
             <p>Beim Hambacher Fest wurde zum ersten Mal in großer Zahl eine Flagge in den Farben <span class="flag-colors"><span class="c-black"></span><span class="c-red"></span><span class="c-gold"></span></span> <strong>Schwarz-Rot-Gold</strong> (in der heutigen Reihenfolge) von der Menge den Berg hinaufgetragen. Sie stand damals als Symbol für ein freies, vereintes Deutschland und ist genau deshalb heute unsere Nationalflagge.</p>
         </section>
 
     </main>
 
-    <!-- Schneeflocken-Skript für den dynamischen Effekt -->
-    <script>
-        function createSnowflake() {
-            const snow = document.createElement('div');
-            snow.className = 'snowflake';
-            snow.textContent = '❄';
-            
-            snow.style.left = Math.random() * 100 + 'vw';
-            snow.style.opacity = Math.random() * 0.7 + 0.3;
-            snow.style.fontSize = Math.random() * 12 + 8 + 'px';
-            snow.style.animationDuration = Math.random() * 4 + 4 + 's';
-            
-            document.body.appendChild(snow);
-            
-            setTimeout(() => {
-                snow.remove();
-            }, 8000);
-        }
-
-        setInterval(createSnowflake, 200);
-    </script>
 </body>
 </html>
