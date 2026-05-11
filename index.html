@@ -3,298 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hambach Dynamisch - Interaktives Sheet</title>
+    <title>Hambacher Fest | Geschichte Erleben</title>
     <style>
+        /* Modernes Design-System */
         :root {
-            --primary-blue: #003366;
-            --accent-cyan: #00d2ff;
-            --success-green: #00e676;
-            --warning-orange: #ff9100;
-            --ice-white: #f0f8ff;
-            --dark-slate: #2c3e50;
+            --text-color: #f8fafc;
+            --accent-blue: #7dd3fc;
+            --accent-red: #f87171;
+            --accent-gold: #fcd34d;
+            --link-color: #fbbf24;
+            --glass-bg: rgba(255, 255, 255, 0.08);
         }
 
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Statischer Hintergrund */
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            padding: 0;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: linear-gradient(145deg, #020617 0%, #1e3a8a 50%, #0f172a 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Wasserzeichen Yazdan Ghanbari */
+        .watermark {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ffffff;
+            z-index: 10000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.5px;
         }
 
         .container {
             max-width: 900px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            margin: 0 auto;
+            padding: 5rem 2rem;
         }
 
-        .header {
-            text-align: left;
-            border-left: 5px solid var(--accent-cyan);
-            padding-left: 20px;
-            margin-bottom: 40px;
+        header {
+            text-align: center;
+            margin-bottom: 5rem;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #fff, var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent-blue);
+            text-shadow: 0 0 40px rgba(125, 211, 252, 0.3);
+            letter-spacing: -2px;
         }
 
-        .info-bar {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
+        .subtitle {
+            font-size: 1.4rem;
+            color: #94a3b8;
+            font-weight: 300;
+            margin-top: 15px;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .task-num {
-            color: var(--accent-cyan);
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            display: block;
+        section {
+            margin-bottom: 4rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin: 0 0 15px 0;
+            color: var(--accent-red);
+            font-size: 2.2rem;
+            margin-top: 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
         }
 
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
+        /* Interaktive Links im Text */
+        .inline-link {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed var(--link-color);
+            transition: all 0.3s ease;
+        }
+
+        .inline-link:hover {
+            background: rgba(251, 191, 36, 0.15);
+            border-bottom: 1px solid var(--link-color);
+            border-radius: 4px;
+            padding: 0 4px;
+        }
+
+        /* Glossar Karten */
+        .term-card {
             background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            color: #fff;
-            padding: 15px;
-            font-size: 1rem;
-            min-height: 150px;
-            resize: vertical;
-            margin-top: 10px;
-            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            padding: 2rem;
+            border-left: 6px solid var(--accent-blue);
+            border-radius: 15px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        textarea:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+        .term-card:hover {
+            transform: translateX(10px);
+            background: rgba(0, 0, 0, 0.4);
         }
 
-        /* Neue Klassen für das Feedback */
-        .feedback {
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: bold;
-            display: none; /* Standardmäßig versteckt */
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        .feedback.success {
-            display: block;
-            background: rgba(0, 230, 118, 0.2);
-            border: 1px solid var(--success-green);
-            color: var(--success-green);
-        }
-
-        .feedback.warning {
-            display: block;
-            background: rgba(255, 145, 0, 0.2);
-            border: 1px solid var(--warning-orange);
-            color: var(--warning-orange);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .footer-tools {
+        .term-card h3 {
+            margin: 0 0 0.8rem 0;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            flex-wrap: wrap;
-            gap: 20px;
+            gap: 12px;
         }
 
-        .glossary-hint {
-            font-size: 0.85rem;
-            color: var(--accent-cyan);
-            cursor: help;
+        /* Animation beim Ziel-Sprung */
+        .term-card:target {
+            animation: highlight-glow 3s ease;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 10px;
+        @keyframes highlight-glow {
+            0% { border-left-color: var(--accent-red); box-shadow: 0 0 30px rgba(248, 113, 113, 0.4); }
+            100% { border-left-color: var(--accent-blue); box-shadow: none; }
         }
 
-        .btn-print, .btn-check {
-            border: none;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
+        .flag-preview {
+            display: inline-flex;
+            gap: 5px;
+            vertical-align: middle;
         }
+        .bar { width: 15px; height: 15px; border-radius: 3px; }
+        .black { background: #000; }
+        .red { background: #ef4444; }
+        .gold { background: #fbbf24; }
 
-        .btn-print {
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-print:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .btn-check {
-            background: var(--accent-cyan);
-            color: var(--primary-blue);
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
-        }
-
-        .btn-check:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.6);
-        }
-
-        @media print {
-            body { background: white; color: black; padding: 0; }
-            .container { background: white; color: black; box-shadow: none; border: none; backdrop-filter: none; }
-            h1 { -webkit-text-fill-color: black; }
-            textarea { border: 1px solid #ccc; color: black; }
-            .footer-tools { display: none; }
-            .feedback { display: block !important; border: 1px dashed black; color: black; background: none; }
+        @media (max-width: 600px) {
+            .container { padding: 2rem 1rem; }
+            .watermark { font-size: 0.8rem; bottom: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Hambacher Fest 1832</h1>
-            <div class="info-bar">
-                <span>📍 Winter-Check: Die Demo der Freiheit</span>
-                <span id="status-indicator">📅 Status: Warte auf Eingabe...</span>
+
+    <div class="watermark">© Yazdan Ghanbari</div>
+
+    <main class="container">
+        <header>
+            <h1>Das Hambacher Fest</h1>
+            <p class="subtitle">Freiheit, Einheit und Mut – eine Zeitreise in den Mai 1832</p>
+        </header>
+
+        <section>
+            <h2>Woher kommt der Name?</h2>
+            <p>
+                Der Name ist ein geografischer Fingerabdruck. Im Mai 1832 zogen rund 30.000 Menschen zur Ruine der <strong>Kästenburg</strong> (heute Hambacher Schloss). Diese Burg lag direkt über dem Dorf <strong>Hambach</strong>. Da es damals die <a href="#def-kleinstaaterei" class="inline-link">Kleinstaaterei</a> gab, war der Ort strategisch wichtig. Die Menschenmassen pilgerten dort hin, und so wurde aus der Ruine der Ort des „Hambacher Festes“.
+            </p>
+        </section>
+
+        <section>
+            <h2>Tarnung als Frühlingsfest</h2>
+            <p>
+                Warum nannte man es „Fest“? In der Zeit der <a href="#def-restauration" class="inline-link">Restauration</a> waren Demonstrationen streng verboten. Die Fürsten nutzten harte <a href="#def-zensur" class="inline-link">Zensur</a>, um Kritik zu unterdrücken. Die Organisatoren aus dem <a href="#def-buergertum" class="inline-link">Bürgertum</a> und den <a href="#def-burschenschaften" class="inline-link">Burschenschaften</a> tarnten das politische Treffen deshalb als harmloses Vergnügen mit Musik und Wein. Es war der Höhepunkt des <a href="#def-vormaerz" class="inline-link">Vormärz</a>.
+            </p>
+        </section>
+
+        <section id="glossar">
+            <h2>Fachbegriffe & „Hochdeutsch“</h2>
+            <p style="color: #cbd5e1; font-style: italic; margin-bottom: 2rem;">
+                Klicke auf die Begriffe im Text oben, um direkt hierher zu springen. Historiker nutzen oft kompliziertes „Hochdeutsch“ – hier ist die einfache Übersetzung:
+            </p>
+
+            <div id="def-kleinstaaterei" class="term-card">
+                <h3>📜 Kleinstaaterei</h3>
+                <p>Deutschland war kein echtes Land, sondern ein „Flickenteppich“ aus vielen kleinen Gebieten. Jeder Fürst kochte seine eigene Suppe, es gab keine Einheit.</p>
             </div>
-        </div>
 
-        <div class="card">
-            <span class="task-num">TASK 01</span>
-            <h2>Das Recap: Was passierte wirklich?</h2>
-            <p>Fass das Geschehen kompakt zusammen. Was waren die Key-Momente im kalten Wind der Freiheit?</p>
-            <!-- ID hinzugefügt für JavaScript -->
-            <textarea id="task1-input" placeholder="Deine Zusammenfassung hier..."></textarea>
-            <!-- Feedback Container -->
-            <div id="feedback-task1" class="feedback"></div>
-        </div>
-
-        <div class="card">
-            <span class="task-num">TASK 02</span>
-            <h2>Royal Crisis Management</h2>
-            <p>Du bist der Fürst. Draußen fällt der Schnee, drinnen brennt die Luft: Wie hättest du reagiert, um deine Macht zu sichern?</p>
-            <!-- ID hinzugefügt für JavaScript -->
-            <textarea id="task2-input" placeholder="Deine Strategie als Fürst..."></textarea>
-            <!-- Feedback Container -->
-            <div id="feedback-task2" class="feedback"></div>
-        </div>
-
-        <div class="footer-tools">
-            <div class="glossary-hint">
-                💡 <strong>Brain-Support:</strong> <br>
-                Monarch = Alleinherrscher | Restoration = "Alte Ordnung" zurückbringen
+            <div id="def-nationalstaat" class="term-card">
+                <h3>📜 Nationalstaat</h3>
+                <p>Der Traum der Menschen: Alle Deutschen sollten in einem einzigen, gemeinsamen Land leben, statt in 30 kleinen Gebieten verteilt zu sein.</p>
             </div>
-            <div class="btn-group">
-                <button class="btn-print" onclick="window.print()">Als PDF</button>
-                <!-- Neuer Auswerten-Button -->
-                <button class="btn-check" onclick="checkAnswers()">Auswerten 🚀</button>
+
+            <div id="def-restauration" class="term-card">
+                <h3>📜 Restauration</h3>
+                <p>Bedeutet „Wiederherstellung“. Die Könige wollten die alte Macht zurück, wie sie vor Napoleon war – ohne dass das normale Volk etwas zu sagen hat.</p>
             </div>
-        </div>
-    </div>
 
-    <script>
-        function checkAnswers() {
-            // Task 1: Hambacher Fest Fakten Check
-            const t1Input = document.getElementById('task1-input').value.toLowerCase();
-            const t1Feedback = document.getElementById('feedback-task1');
-            
-            // Wichtige Schlagwörter für Aufgabe 1
-            const t1Keywords = ['freiheit', 'einheit', 'demokratie', 'pressefreiheit', 'schwarz-rot-gold', 'wirth', 'siebenpfeiffer', 'nationalstaat'];
-            let t1Score = 0;
+            <div id="def-zensur" class="term-card">
+                <h3>📜 Zensur & Pressefreiheit</h3>
+                <p>Zensur heißt: Der Staat verbietet alles, was ihm nicht passt. Die Leute in Hambach forderten <strong>Pressefreiheit</strong>, damit Zeitungen die Wahrheit schreiben dürfen.</p>
+            </div>
 
-            t1Keywords.forEach(word => {
-                if(t1Input.includes(word)) t1Score++;
-            });
+            <div id="def-vormaerz" class="term-card">
+                <h3>📜 Vormärz</h3>
+                <p>So nennt man die Zeit vor der großen Revolution im März 1848. Es war eine Zeit voller Spannung, in der die Sehnsucht nach Freiheit immer größer wurde.</p>
+            </div>
 
-            if (t1Input.length < 20) {
-                t1Feedback.className = 'feedback warning';
-                t1Feedback.innerHTML = '⚠️ Das ist noch etwas kurz. Versuch das Ereignis genauer zu beschreiben!';
-            } else if (t1Score >= 2) {
-                t1Feedback.className = 'feedback success';
-                t1Feedback.innerHTML = '🔥 Stark! Du hast wichtige Key-Facts (wie Freiheit/Einheit/Demokratie) genannt.';
-            } else {
-                t1Feedback.className = 'feedback warning';
-                t1Feedback.innerHTML = '🤔 Guter Anfang, aber fehlen da nicht noch zentrale Forderungen der Leute (z.B. nach E_nh_it oder F_eih_it)?';
-            }
+            <div id="def-hochdeutsch" class="term-card">
+                <h3>📜 Hochdeutsch (Bildungssprache)</h3>
+                <p>Damals sprachen die meisten Leute Dialekt (z.B. Pfälzisch). Hochdeutsch zu sprechen war ein Zeichen von Bildung und Einigkeit. Es war die Sprache, in der man über Politik und Recht diskutierte, um sich über Grenzen hinweg zu verstehen.</p>
+            </div>
 
-            // Task 2: Strategie Check
-            const t2Input = document.getElementById('task2-input').value.toLowerCase();
-            const t2Feedback = document.getElementById('feedback-task2');
-            
-            // Mögliche Strategien eines Fürsten (Gewalt oder Zugeständnisse)
-            const t2Keywords = ['militär', 'zensur', 'verhaftung', 'polizei', 'gewalt', 'verbieten', 'reformen', 'zugeständnisse', 'parlament', 'karlsbader'];
-            let t2Score = 0;
+            <div id="def-volkssouveraenitaet" class="term-card">
+                <h3>📜 Volkssouveränität</h3>
+                <p>Das wichtigste Ziel: Die Macht soll vom Volk ausgehen, nicht von einem König durch „Gottes Gnaden“. Das ist der Kern jeder Demokratie.</p>
+            </div>
 
-            t2Keywords.forEach(word => {
-                if(t2Input.includes(word)) t2Score++;
-            });
+            <div id="def-buergertum" class="term-card">
+                <h3>📜 Bürgertum</h3>
+                <p>Gebildete Menschen (Lehrer, Ärzte, Kaufleute), die arbeiteten und Steuern zahlten, aber endlich auch politisch mitbestimmen wollten.</p>
+            </div>
 
-            if (t2Input.length < 20) {
-                t2Feedback.className = 'feedback warning';
-                t2Feedback.innerHTML = '⚠️ Der Thron wackelt! So ein kurzer Plan reicht nicht aus, um die Macht zu sichern.';
-            } else if (t2Score >= 1) {
-                t2Feedback.className = 'feedback success';
-                t2Feedback.innerHTML = '👑 Gut durchdacht! Eine realistische Strategie für einen Monarchen dieser Zeit.';
-            } else {
-                t2Feedback.className = 'feedback warning';
-                t2Feedback.innerHTML = '🧐 Interessante Idee. Überleg mal: Würdest du eher auf hartes Durchgreifen (Zensur/Militär) oder auf Täuschung/Zugeständnisse setzen?';
-            }
+            <div id="def-burschenschaften" class="term-card">
+                <h3>📜 Burschenschaften</h3>
+                <p>Studentenverbindungen, die damals sehr radikal für die Einheit Deutschlands kämpften. Sie brachten die Farben Schwarz-Rot-Gold mit.</p>
+            </div>
+        </section>
 
-            // Status oben updaten
-            document.getElementById('status-indicator').innerHTML = '✅ Status: Auswertung abgeschlossen';
-        }
-    </script>
+        <section>
+            <h2>Wusstest du schon? 💡</h2>
+            <p>
+                Nicht nur Deutsche feierten hier. Es gab eine riesige <strong>Polenbegeisterung</strong>. Viele Polen, die gegen Russland gekämpft hatten, wurden wie Helden empfangen. Außerdem wurde hier zum ersten Mal die Flagge in 
+                <span class="flag-preview"><span class="bar black"></span><span class="bar red"></span><span class="bar gold"></span></span> 
+                <strong>Schwarz-Rot-Gold</strong> offiziell als Zeichen der Freiheit getragen!
+            </p>
+        </section>
+    </main>
 </body>
 </html>
